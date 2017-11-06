@@ -1,0 +1,19 @@
+{
+  "name": "google_it",
+  "version": "1.0.0",
+  "description": "A testing Alexa skill to be hosted",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel2005315/google_it.git"
+  },
+  "author": "Daniel Leung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniel2005315/google_it/issues"
+  },
+  "homepage": "https://github.com/daniel2005315/google_it#readme"
+}
