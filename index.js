@@ -1,9 +1,16 @@
+"use strict";
 module.change_code = 1;
-'use strict';
+
 
 var alexa = require( 'alexa-app' );
 var app = new alexa.app( 'google_it' );
 
+// Try to use chinese Tokenizer
+//var tokenizerC = require('chinese-tokenizer')('./cedict_ts.u8');
+
+// test accessig sentiment_Analyser
+var sentiment_Analyser = require.main.require('./process/sAnalyse.js');
+var pos_Parser = require.main.require('./process/posParser.js');
 
 app.launch( function( request, response ) {
 	response.say( 'This is a testing skill' ).reprompt( 'It should run...' ).shouldEndSession( false );
@@ -31,7 +38,9 @@ app.intent("SearchIntent", {
   },
   function(request,response) {
     var item = request.slot('searchPhrase');
-    response.say("You wanted to Google about "+ item);
+		var score = sentiment_Analyser.getScore(item);
+		var pos = pos_Parser.isNoun(item);
+    response.say("The sentiment score for"+ item+" is "+score);
   }
 );
 
